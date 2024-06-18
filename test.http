@@ -1,10 +1,11 @@
+# 회원가입 Request
 POST https://learn.codeit.kr/api/link-service/users
 Content-Type: application/json
 
 {
-  "name": "코드잇",
-  "email": "codeit@example.com",
-  "password": "p@ssword"
+  "name": "밥우지",
+  "email": "riceWoozi@example.com",
+  "password": "rice1122"
 }
 
 ###

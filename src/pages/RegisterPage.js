@@ -41,33 +41,31 @@ function RegisterPage() {
     }));
   }
 
+  // 홈페이지에서 입력한 데이터를 처리
   async function handleSubmit(e) {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append("avatar", values.avatar);
-    formData.append("name", values.name);
-    formData.append("email", values.email);
-    formData.append("bio", values.bio);
-    await axios.patch("/users/me", formData);
-    navigate("/me");
+
+    if (values.password !== values.passwordRepeat) {
+      toast("warn", "비밀번호가 일치하지 않습니다.");
+      return;
+    }
+
+    const { name, email, password } = values;
+
+    /**
+     * @TODO
+     * 서버에 회원을 생성
+     * 회원 생성이 성공하면 로그인 시도
+     * 로그인이 성공하면 `/me`로 이동
+     */
+    // values라는 state 값을 서버로 보냄
+    // axios를 사용해서 POST Request를 보냄
+    axios.post("/users", {
+      name,
+      email,
+      password,
+    });
   }
-
-  // async function handleSubmit(e) {
-  //   e.preventDefault();
-
-  //   if (values.password !== values.passwordRepeat) {
-  //     toast("warn", "비밀번호가 일치하지 않습니다.");
-  //     return;
-  //   }
-  //   const { name, email, password } = values;
-  //   await axios.post("/users", {
-  //     name,
-  //     email,
-  //     password,
-  //   });
-  //   await login({ email, password });
-  //   navigate("/me");
-  // }
 
   useEffect(() => {
     if (user) navigate("/me");
