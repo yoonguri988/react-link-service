@@ -9,13 +9,13 @@ Content-Type: application/json
 }
 
 ###
-
+# 로그인 Request
 POST https://learn.codeit.kr/api/link-service/auth/login
 Content-Type: application/json
 
 {
-  "email": "codeit@example.com",
-  "password": "p@ssword"
+  "email": "riceWoozi@example.com",
+  "password": "rice1122"
 }
 
 ###
